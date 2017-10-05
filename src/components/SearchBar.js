@@ -7,9 +7,13 @@ class SearchBar extends Component {
     render() {
         return(
             <div className="search-bar">
-                <input
-                 type="text" placeholder="Search here ..."
-                 onChange={(event) => this.onInputChange(event)} />
+                <div className="inputWithAddon">
+                    <i className="fa fa-search fa-lg"></i>
+                    <input
+                        className="form-control input-lg"
+                        type="text" placeholder="Search here ..."
+                        onChange={(event) => this.onInputChange(event)} autoFocus />
+                </div>
                  <h3> {this.props.status} </h3>
             </div>
         );

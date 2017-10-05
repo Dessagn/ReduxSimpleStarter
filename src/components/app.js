@@ -6,6 +6,7 @@ import _ from 'lodash';
 import SearchBar from './SearchBar';
 import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
+import Header from './Header';
 
 const API_KEY =  'AIzaSyCl0Uw5sotiFLbnHB9HsRyHbsOXFYi7s4I';
 
@@ -18,7 +19,7 @@ class App extends Component {
       selectedVideo: null
     };
 
-    this.videoSearch('love songs');
+    this.videoSearch('React tutorials');
   }
 
   videoSearch = (term) => {
@@ -39,6 +40,8 @@ class App extends Component {
     const search = _.debounce((term) => {this.videoSearch(term)}, 300);
     return(
       <div>
+        <Header />
+        <div className="container">
          <SearchBar onSearchTermChange={search} />
          <div className="row">
           <VideoDetail video={this.state.selectedVideo} />
@@ -47,6 +50,8 @@ class App extends Component {
             videos = {this.state.videos} />
          </div>
       </div>
+      </div>
+
     );
   }
 }
